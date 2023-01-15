@@ -10,6 +10,9 @@ const Cart = (props) => {
   const [checkout, setCheckout] = useState(false);
   const cartCtx = useContext(CartContext);
 
+  const confirmHandler = userData => {
+     
+  }
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
@@ -50,7 +53,7 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {checkout && <Checkout onCancel={onCancelHandler}/>}
+      {checkout && <Checkout onCancel={onCancelHandler} onConfirm={confirmHandler}/>}
       {!checkout && <div className={classes.actions}>
         <button className={classes['button--alt']} onClick={props.onClose}>
           Close
