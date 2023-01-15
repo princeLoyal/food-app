@@ -13,10 +13,10 @@ const Cart = (props) => {
   const confirmHandler = async userData => {
      const response = await fetch('https://react-http-c3510-default-rtdb.firebaseio.com/order.json', {
      method: 'POST', 
-     body: JSON.stringify(userData);
+     body: JSON.stringify(userData),
      header: {
        'content-type' : 'application/json'
-   }
+     }
    })
   }
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
