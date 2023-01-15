@@ -25,6 +25,9 @@ const Cart = (props) => {
     setCheckout(true);
   }
 
+  const onCancelHandler = () => {
+    setCheckout(false);
+  }
   const cartItems = (
     <ul className={classes['cart-items']}>
       {cartCtx.items.map((item) => (
@@ -47,7 +50,7 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      {checkout && <Checkout />}
+      {checkout && <Checkout onCancel={onCancelHandler}/>}
       {!checkout && <div className={classes.actions}>
         <button className={classes['button--alt']} onClick={props.onClose}>
           Close
